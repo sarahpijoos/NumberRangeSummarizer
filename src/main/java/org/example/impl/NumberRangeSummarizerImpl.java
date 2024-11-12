@@ -20,6 +20,10 @@ public class NumberRangeSummarizerImpl implements NumberRangeSummarizer {
     public Collection<Integer> collect(String input) {
         String[] inputArray = input.replaceAll(" ", "").split(",");
         int[] values =  Arrays.stream(inputArray).mapToInt(Integer::parseInt).toArray();
+
+        //There is a built-in method that is able to sort the values, but I was not sure
+        // if the assessment required creating my own sort function, so I have implemented
+        // the logic manually.
         NumberRangeUtils.sort(values);
         return Arrays.stream(values).boxed().toList();
     }
